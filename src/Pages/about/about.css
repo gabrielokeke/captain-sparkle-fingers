@@ -1,0 +1,318 @@
+#about {
+  color: #fff;
+  padding: 80px 0;
+  background-color: #111; /* subtle dark background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px; /* spacing between columns */
+}
+
+.about-col1 {
+  flex-basis: 35%;
+  min-width: 280px; /* prevent too narrow */
+}
+
+.about-col1 img {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  display: block;
+}
+
+.about-col2 {
+  flex-basis: 60%;
+  min-width: 300px;
+}
+
+.subtitle {
+  font-size: 60px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.tab-titles {
+  display: flex;
+  margin: 20px 0 40px;
+  gap: 40px;
+  flex-wrap: wrap;
+  user-select: none; /* prevent text selection on tab click */
+}
+
+.tab-links {
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  color: #fff;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+  white-space: nowrap; /* prevent tab text wrapping */
+  flex-shrink: 0; /* keep tab width stable */
+}
+
+.tab-links:hover {
+  color: #ffcb05;
+}
+
+.tab-links::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #ffcb05;
+  transition: width 0.5s ease;
+}
+
+.tab-links.active-link::after {
+  width: 100%;
+}
+
+.tab-content {
+  display: none;
+  color: #ddd;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.tab-content.active-tab {
+  display: block;
+}
+
+.tab-content ul {
+  padding-left: 20px;
+}
+
+.tab-content ul li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.tab-content ul li span {
+  color: #ffcb05;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.vision-goals, .fun-facts {
+  margin-top: 40px;
+  padding: 25px 30px;
+  background: #222;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.vision-goals p, .fun-facts ul {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.fun-facts ul {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.fun-facts li::before {
+  content: "• ";
+  color: #ffcb05;
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+
+/* Container base style */
+.vision-goals, .fun-facts {
+  position: relative;
+  overflow: hidden;
+  background: #222;
+  transition: color 0.4s ease;
+  cursor: pointer;
+}
+
+/* The yellow sliding background */
+.vision-goals::before,
+.fun-facts::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffcb05;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+/* On hover or touch (also works for keyboard focus) */
+.vision-goals:hover::before,
+.vision-goals:focus-within::before,
+.fun-facts:hover::before,
+.fun-facts:focus-within::before {
+  transform: translateY(0);
+}
+
+/* Make text appear above the sliding bg */
+.vision-goals > *,
+.fun-facts > * {
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s ease;
+}
+
+/* Change text color when yellow bg slides in */
+.vision-goals:hover > *,
+.vision-goals:focus-within > *,
+.fun-facts:hover > *,
+.fun-facts:focus-within > * {
+  color: #111; /* dark text for contrast on yellow bg */
+}
+
+
+/* Existing styles from before */
+
+/* Yellow sliding background */
+.vision-goals::before,
+.fun-facts::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffcb05;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+/* Triggered by hover, focus, or visible class */
+.vision-goals:hover::before,
+.vision-goals:focus-within::before,
+.vision-goals.visible::before,
+.fun-facts:hover::before,
+.fun-facts:focus-within::before,
+.fun-facts.visible::before {
+  transform: translateY(0);
+}
+
+/* Text stays above sliding bg */
+.vision-goals > *,
+.fun-facts > * {
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s ease;
+}
+
+/* Change text color when yellow bg slides in */
+.vision-goals:hover > *,
+.vision-goals:focus-within > *,
+.vision-goals.visible > *,
+.fun-facts:hover > *,
+.fun-facts:focus-within > *,
+.fun-facts.visible > * {
+  color: #111;
+}
+
+
+/* Responsive tweaks */
+@media only screen and (max-width: 1024px) {
+  #about {
+    padding: 60px 20px;
+  }
+
+  .subtitle {
+    font-size: 48px;
+  }
+
+  .about-col1 {
+    flex-basis: 40%;
+  }
+
+  .about-col2 {
+    flex-basis: 55%;
+  }
+
+  .tab-links {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #about {
+    padding: 40px 20px;
+  }
+
+  .subtitle {
+    font-size: 40px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .about-col1, .about-col2 {
+    flex-basis: 100%;
+    min-width: auto;
+  }
+
+  .about-col1 {
+    margin-bottom: 30px;
+  }
+
+  .about-col2 {
+    font-size: 14px;
+  }
+
+  .tab-titles {
+    justify-content: flex-start;
+    gap: 20px;
+    overflow-x: auto; /* scroll tabs horizontally if too many */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  .tab-titles::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .tab-links {
+    font-size: 16px;
+    margin-right: 0;
+    padding: 6px 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .subtitle {
+    font-size: 32px;
+  }
+
+  .tab-links {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+
+  .vision-goals, .fun-facts {
+    padding: 20px 15px;
+  }
+
+  .tab-content {
+    font-size: 14px;
+  }
+}

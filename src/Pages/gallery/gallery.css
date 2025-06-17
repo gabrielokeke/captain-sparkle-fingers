@@ -1,0 +1,56 @@
+/* Set the full page background to black */
+body {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Gallery Section */
+.gallery-container {
+  padding: 40px 20px;
+  background-color: #000; /* Changed from #f9fafb to black */
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #ffcb05; /* Yellow for contrast on black */
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #111; /* Dark card background */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+.image-title {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #eee; /* Light gray for readability */
+  font-weight: 600;
+}
