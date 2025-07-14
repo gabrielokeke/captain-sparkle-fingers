@@ -13,7 +13,7 @@ const Contact = () => {
 	const [formData, setFormData] = useState({
 		username: "",
 		email: "",
-		password: "",
+		text: "",
 	});
 
 	const [validated, setValidated] = useState(false);
@@ -46,7 +46,7 @@ const Contact = () => {
 			setFormData({
 				username: "",
 				email: "",
-				password: "",
+				text: "",
 			});
 			setValidated(false);
 
@@ -120,12 +120,12 @@ const Contact = () => {
 									</BootstrapForm.Control.Feedback>
 								</BootstrapForm.Group>
 
-								<BootstrapForm.Group className="mb-4" controlId="password">
+								<BootstrapForm.Group className="mb-4" controlId="text">
 									<BootstrapForm.Label>Message</BootstrapForm.Label>
 									<BootstrapForm.Control
-										type="password"
-										name="password"
-										value={formData.password}
+										type="text"
+										name="text"
+										value={formData.text}
 										onChange={handleChange}
 										required
 									/>
